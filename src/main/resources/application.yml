@@ -1,25 +1,26 @@
 micronaut:
   application:
     name: demo
+  server:
+    port: 8002
+
+thing:
+  host: 127.0.0.1:8002
+
+db:
+  database: THING
+  host: 127.0.0.1:3308
+  user: root
+  pass: thing-root
+
 jpa:
   default:
+    reactive: true
     properties:
       hibernate:
         hbm2ddl:
           auto: update
         connection:
-          db-type: mariadb
-    reactive: true
-vertx:
-  mysql:
-    client:
-      port: 3306
-      host: the-host
-      database: the-db
-      user: user
-      password: password
-      maxSize: 5
-netty:
-  default:
-    allocator:
-      max-order: 3
+          url: jdbc:mariadb://${db.host}/${db.database}
+          username: ${db.user}
+          password: ${db.pass}
