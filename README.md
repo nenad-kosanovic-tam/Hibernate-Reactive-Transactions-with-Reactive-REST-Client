@@ -1,1 +1,1 @@
-# Hibernate-Reactive-Transactions-with-Reactive-REST-Client
+# Hibernate Reactive Transactions with Reactive REST Client
