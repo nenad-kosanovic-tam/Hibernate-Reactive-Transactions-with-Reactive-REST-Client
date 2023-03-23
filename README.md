@@ -10,3 +10,4 @@ But, if in this execution chane, we need to call Reactive REST client, this call
 ```
 HR000069: Detected use of the reactive Session from a different Thread than the one which was used to open the reactive Session - this suggests an invalid integration; original thread [52]: 'vert.x-eventloop-thread-1' current Thread [55]: 'vert.x-eventloop-thread-2
 ```
+Issue is reproducable by running test ThingServiceTest#createWithRestCall_should_fail.
