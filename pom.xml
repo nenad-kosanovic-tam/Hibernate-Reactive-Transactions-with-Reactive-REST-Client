@@ -21,6 +21,7 @@
         <micronaut.test.resources.enabled>true</micronaut.test.resources.enabled>
         <micronaut.runtime>netty</micronaut.runtime>
         <version.micronaut.data>3.7.2</version.micronaut.data>
+        <version.wiremock-jre8>2.33.2</version.wiremock-jre8>
         <exec.mainClass>com.example.ThingApplication</exec.mainClass>
     </properties>
 
@@ -61,6 +62,10 @@
             <groupId>io.micronaut.reactor</groupId>
             <artifactId>micronaut-reactor</artifactId>
             <scope>compile</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.projectreactor</groupId>
+            <artifactId>reactor-core</artifactId>
         </dependency>
         <dependency>
             <groupId>io.micronaut.data</groupId>
@@ -109,6 +114,12 @@
         <dependency>
             <groupId>org.mariadb.jdbc</groupId>
             <artifactId>mariadb-java-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.github.tomakehurst</groupId>
+            <artifactId>wiremock-jre8</artifactId>
+            <version>${version.wiremock-jre8}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

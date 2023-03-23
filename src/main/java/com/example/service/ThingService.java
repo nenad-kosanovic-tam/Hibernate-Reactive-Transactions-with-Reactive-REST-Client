@@ -4,6 +4,7 @@
 
 package com.example.service;
 
+import com.example.client.ThingClient;
 import com.example.model.dto.ThingDto;
 import com.example.model.entity.Thing;
 import com.example.repository.ThingRepository;
@@ -12,13 +13,15 @@ import jakarta.inject.Singleton;
 import reactor.core.publisher.Mono;
 
 import javax.transaction.Transactional;
-import java.time.LocalDate;
 
 @Singleton
 public class ThingService {
 
     @Inject
     private ThingRepository repository;
+
+    @Inject
+    private ThingClient thingClient;
 
     @Transactional
     public Mono<ThingDto> create(String message) {
@@ -51,6 +54,6 @@ public class ThingService {
     }
 
     private Mono<String> getMessage(Thing thingDto) {
-        return Mono.just(thingDto.getMessage() + LocalDate.now());
+        return Mono.from(thingClient.getMessage(thingDto.getMessage()));
     }
 }
